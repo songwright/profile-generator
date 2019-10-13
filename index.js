@@ -36,7 +36,28 @@ const questions = [
 ];
 
 function writeToFile(fileName, data) {
-  fs.writeFile("index.html", data, function(err) {
+
+  let html = `
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h1>Hi!</h1>
+                <h1>My name is ${fullName}!</h1>
+                <h3>Currently @ ${company}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  `;
+
+  fs.writeFile("index.html", html, function(err) {
     if (err) {
       return console.log(err);
     }
@@ -70,6 +91,7 @@ function init() {
         followers = res.data.followers;
         following = res.data.following;
         console.log(fullName);
+        writeToFile();
       })
       .catch(function(error) {
         console.log(error);
