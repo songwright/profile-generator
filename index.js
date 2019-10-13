@@ -1,6 +1,6 @@
 // Required
 
-var generator = require("./generateHTML.js")
+const generator = require("./generateHTML.js")
 const inquirer = require("inquirer");
 const axios = require("axios");
 const fs = require("fs");
@@ -57,7 +57,9 @@ function writeToFile(fileName, data) {
   </body>
   `;
 
-  fs.writeFile("index.html", html, function(err) {
+  pageData = generator.generateHTML(colorTheme) + html;
+
+  fs.writeFile("index.html", pageData, function(err) {
     if (err) {
       return console.log(err);
     }
