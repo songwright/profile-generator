@@ -47,5 +47,34 @@ function writeToFile(fileName, data) {
 }
 
 function init() {
+  inquirer
+    .prompt(questions)
+    .then(answers => {
+      gitUsername = answers.username;
+      console.log(gitUsername);
+      colorTheme = answers.color;
+      console.log(colorTheme);
+    })
+    .then(function(){
+      const queryUrl = `https://api.github.com/users/${gitUsername}`;
+      axios.get(queryUrl)
+      .then(function(res) {
+        imageLink = res.data.avatar_url;
+        fullName = res.data.name;
+        company = res.data.company;
+        location = res.data.location;
+        profileLink = res.data.html_url;
+        blogLink = res.data.blog;
+        bioLink = res.data.bio;
+        repos = res.data.public_repos;
+        followers = res.data.followers;
+        following = res.data.following;
+        console.log(fullName);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    })
+}
 
 init();
