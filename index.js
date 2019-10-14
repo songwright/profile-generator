@@ -44,11 +44,14 @@ function writeToFile(fileName, data) {
         <div class="container">
           <div class="row">
             <div class="col">
-              <div class="card">
-                <h1>Hi!</h1>
-                <h1>My name is ${fullName}!</h1>
-                <h3>Currently @ ${company}</h3>
-              </div>
+              <!-- <div class="card"> -->
+                <header class="photo-header">
+                  <img src="${imageLink}" alt="${fullName}">
+                  <h1>Hi!</h1>
+                  <h1>My name is ${fullName}!</h1>
+                  <h3>Currently @ ${company}</h3>
+                </header>
+              <!-- </div> -->
             </div>
           </div>
         </div>
