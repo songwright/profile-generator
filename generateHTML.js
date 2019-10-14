@@ -77,6 +77,7 @@ function generateHTML(data) {
          }
          h3 {
          font-size: 2em;
+         display: block;
          }
          h4 {
          font-size: 1.5em;
@@ -109,7 +110,7 @@ function generateHTML(data) {
          border: 6px solid ${colors[data].photoBorderColor};
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
-         .photo-header h1, .photo-header h2 {
+         .photo-header h1, .photo-header h2, .photo-header h5 {
          width: 100%;
          text-align: center;
          }

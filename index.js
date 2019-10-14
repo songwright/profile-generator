@@ -20,7 +20,6 @@ let repos = 0;
 let followers = 0;
 let starsTotal = 0;
 let following = 0;
-let userData = [];
 const questions = [
   {
     type: "input",
@@ -45,7 +44,7 @@ function writeToFile(fileName, data) {
     <header class="photo-header">
       <img src="${imageLink}" alt="${fullName}">
       <h1>Hi!</h1>
-      <h3>My name is ${fullName}!</h3>
+      <h2>My name is ${fullName}!</h2>
       <h5>Currently @ ${company}</h5>
       <h6><a href="${location}">${location}</a> <a href="${profileLink}">GitHub</a> <a href="${blogLink}">Blog</a></h6>
     </header>
@@ -72,7 +71,7 @@ function writeToFile(fileName, data) {
             <div class="col">
               <div class="card">
                 <h5>GitHub Stars</h5>
-                <h6>Number</h6>
+                <h6>${starsTotal}</h6>
               </div>
             </div>
             <div class="col">
@@ -95,10 +94,28 @@ function writeToFile(fileName, data) {
     if (err) {
       return console.log(err);
     }
-
     console.log("Success!");
-
   });
+}
+
+function githubStars() {
+  // Get the user's GitHub stars
+  const queryUrl = `https://api.github.com/users/${gitUsername}/repos?per_page=100`;
+    axios.get(queryUrl)
+    .then(response => {
+      response.data.reduce((total, curr) => {
+        total += curr.stargazers_count;
+        return starsTotal = total;
+      }, 0)
+    })
+    .then(function() {
+      // Put the GitHub stars number into the page and render it.
+      writeToFile();
+
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 }
 
 function init() {
@@ -106,9 +123,7 @@ function init() {
     .prompt(questions)
     .then(answers => {
       gitUsername = answers.username;
-      console.log(gitUsername);
       colorTheme = answers.color;
-      console.log(colorTheme);
     })
     .then(function(){
       const queryUrl = `https://api.github.com/users/${gitUsername}`;
@@ -124,8 +139,7 @@ function init() {
         repos = res.data.public_repos;
         followers = res.data.followers;
         following = res.data.following;
-        console.log(fullName);
-        writeToFile();
+        githubStars();
       })
       .catch(function(error) {
         console.log(error);
