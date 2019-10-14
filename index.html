@@ -58,6 +58,7 @@
          }
          h6 {
          font-size: 1.2em;
+         margin: 0 auto;
          }
          .photo-header {
          position: relative;
@@ -146,17 +147,48 @@
 <body>
   <div class="wrapper">
     <div class="links-nav"></div>
+    <!-- Profile picture -->
     <header class="photo-header">
       <img src="https://avatars3.githubusercontent.com/u/9385814?v=4" alt="Christian Eckenrode">
       <h1>Hi!</h1>
-      <h2>My name is Christian Eckenrode!</h2>
+      <h3>My name is Christian Eckenrode!</h3>
       <h5>Currently @ Trilogy Education Services</h5>
-      <br>
       <h6><a href="Richmond, Virginia">Richmond, Virginia</a> <a href="https://github.com/ceckenrode">GitHub</a> <a href="https://eck.im/twitter">Blog</a></h6>
     </header>
     <main>
       <div class="container">
-        <h4>I build things and teach people to code.</h4>
+        <div class="col">
+          <!-- Profile bio -->
+          <h4>I build things and teach people to code.</h4>
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h5>Public Repositories</h5>
+                <h6>135</h6>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5>Followers</h5>
+                <h6>101</h6>
+              </div>
+            </div>
+          </div> <!-- End of row -->
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h5>GitHub Stars</h5>
+                <h6>Number</h6>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5>Following</h5>
+                <h6>70</h6>
+              </div>
+            </div>
+          </div><!-- End of row -->
+        </div>
       </div>
     </main>
   </div>

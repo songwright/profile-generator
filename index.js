@@ -41,17 +41,48 @@ function writeToFile(fileName, data) {
 <body>
   <div class="wrapper">
     <div class="links-nav"></div>
+    <!-- Profile picture -->
     <header class="photo-header">
       <img src="${imageLink}" alt="${fullName}">
       <h1>Hi!</h1>
-      <h2>My name is ${fullName}!</h2>
+      <h3>My name is ${fullName}!</h3>
       <h5>Currently @ ${company}</h5>
-      <br>
       <h6><a href="${location}">${location}</a> <a href="${profileLink}">GitHub</a> <a href="${blogLink}">Blog</a></h6>
     </header>
     <main>
       <div class="container">
-        <h4>${bioLink}</h4>
+        <div class="col">
+          <!-- Profile bio -->
+          <h4>${bioLink}</h4>
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h5>Public Repositories</h5>
+                <h6>${repos}</h6>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5>Followers</h5>
+                <h6>${followers}</h6>
+              </div>
+            </div>
+          </div> <!-- End of row -->
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h5>GitHub Stars</h5>
+                <h6>Number</h6>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5>Following</h5>
+                <h6>${following}</h6>
+              </div>
+            </div>
+          </div><!-- End of row -->
+        </div>
       </div>
     </main>
   </div>
