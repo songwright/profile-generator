@@ -46,7 +46,9 @@ function writeToFile(fileName, data) {
       <h1>Hi!</h1>
       <h2>My name is ${fullName}!</h2>
       <h5>Currently @ ${company}</h5>
-      <h6><a href="${location}">${location}</a> <a href="${profileLink}">GitHub</a> <a href="${blogLink}">Blog</a></h6>
+      <h6><a href="https://www.google.com/maps/place/${location}" target="_blank"><i class="fas fa-location-arrow"></i> ${location}</a>
+        <span>blank</span><a href="${profileLink}" target="_blank"><i class="fab fa-github-alt"></i> GitHub</a>
+        <span>black</span><a href="${blogLink}" target="_blank"><i class="fas fa-rss"></i> Blog</a></h6>
     </header>
     <main>
       <div class="container">
