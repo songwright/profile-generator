@@ -88,6 +88,9 @@ function generateHTML(data) {
          h6 {
          font-size: 1.2em;
          }
+         span {
+           visibility: hidden;
+         }
          .photo-header {
          position: relative;
          margin: 0 auto;
@@ -116,6 +119,9 @@ function generateHTML(data) {
          }
          .photo-header h1 {
          margin-top: 10px;
+         }
+         .photo-header h6 {
+         margin: 20px;
          }
          .links-nav {
          width: 100%;
