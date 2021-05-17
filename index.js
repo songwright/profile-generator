@@ -4,10 +4,6 @@ const generator = require("./generateHTML.js")
 const inquirer = require("inquirer");
 const axios = require("axios");
 const fs = require("fs");
-var convertFactory = require('electron-html-to');
-var conversion = convertFactory({
-  converterPath: convertFactory.converters.PDF
-});
 
 // Variables and constants
 
@@ -95,17 +91,6 @@ function writeToFile(fileName, data) {
   `;
 
   pageData = generator.generateHTML(colorTheme) + html;
-
-  conversion({ html: pageData }, function(err, result) {
-    if (err) {
-      return console.error(err);
-    }
-
-    console.log(result.numberOfPages);
-    console.log(result.logs);
-    result.stream.pipe(fs.createWriteStream('./profile.pdf'));
-    conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
-  });
 
   fs.writeFile("index.html", pageData, function(err) {
     if (err) {
